@@ -57,6 +57,7 @@ specify, including:
 - `Field::Email`
 - `Field::HasMany`
 - `Field::HasOne`
+- `Field::Image`
 - `Field::Number`
 - `Field::Polymorphic`
 - `Field::Select`

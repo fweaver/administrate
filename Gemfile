@@ -4,7 +4,6 @@ ruby "2.2.2"
 
 gemspec
 
-gem "administrate-field-image", github: 'fweaver/administrate-field-image'
 gem "delayed_job_active_record"
 gem "high_voltage"
 gem "markdown-rails"

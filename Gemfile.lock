@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/fweaver/administrate-field-image.git
-  revision: 6fafe411f2a172df12e46857db8a9f86d897351b
-  specs:
-    administrate-field-image (0.0.2)
-      administrate (>= 0.2.0.rc1, <= 0.4.0)
-      rails (~> 4.2)
-
 PATH
   remote: .
   specs:
@@ -288,7 +280,6 @@ PLATFORMS
 
 DEPENDENCIES
   administrate!
-  administrate-field-image!
   ammeter
   appraisal
   awesome_print
