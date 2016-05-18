@@ -1,6 +1,12 @@
 require "administrate/base_dashboard"
 
 class <%= class_name %>Dashboard < Administrate::BaseDashboard
+  # FILTER_OPTIONS
+  # a hash that describes filter options in index page
+  # example:
+  # { key1: { text:'button text', singular_select: false, data: [%w(val_1 txt1), %w(val_2 txt2)] } }
+  FILTER_OPTIONS = {}
+
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
