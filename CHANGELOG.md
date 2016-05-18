@@ -16,21 +16,10 @@
 
 ## Changes
 
-### Upcoming Release
+### 0.3.0 (May 18, 2016)
+* add filter options
 
-* [#567] [FEATURE] Add a partial for rendering HTML links to stylesheets.
-  This is useful for plugin developers,
-  as well as people who want to add custom stylesheets on a page-by-page basis
-  using `content_for(:stylesheet)`.
-* [#492] [FEATURE] Translate attribute labels on show and index pages.
-  To customize an attribute label, add translations according to the structure:
-    ```
-    en:
-      helpers:
-        label:
-          customer:
-            name: Full Name
-    ```
+### versions below by thoughtbot
 
 ### 0.2.0 (April 20, 2016)
 
