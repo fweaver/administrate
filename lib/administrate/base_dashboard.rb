@@ -15,6 +15,14 @@ module Administrate
   class BaseDashboard
     include Administrate
 
+    def filter_options
+      if defined? self.class::FILTER_OPTIONS
+        self.class::FILTER_OPTIONS
+      else
+        {}
+      end
+    end
+
     def attribute_types
       self.class::ATTRIBUTE_TYPES
     end

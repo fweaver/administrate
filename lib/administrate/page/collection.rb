@@ -3,6 +3,11 @@ require_relative "base"
 module Administrate
   module Page
     class Collection < Page::Base
+
+      def filter_options
+        dashboard.filter_options
+      end
+
       def attribute_names
         dashboard.collection_attributes
       end

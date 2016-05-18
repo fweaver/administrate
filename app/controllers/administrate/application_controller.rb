@@ -5,6 +5,16 @@ module Administrate
     def index
       search_term = params[:search].to_s.strip
       resources = Administrate::Search.new(resource_resolver, search_term).run
+
+      if params[:filter].present?
+        filter_options = parse_filter_param
+        @filter_options = filter_options.deep_dup
+
+        if filter_options.present?
+          resources = filtered_resources(resources, filter_options)
+        end
+      end
+
       resources = order.apply(resources)
       resources = resources.page(params[:page]).per(records_per_page)
       page = Administrate::Page::Collection.new(dashboard, order: order)
@@ -69,6 +79,26 @@ module Administrate
     end
 
     private
+
+    def parse_filter_param
+      filter_options = {}
+      filter_array = params[:filter].to_s.strip.split('!')
+
+      if filter_array.present?
+        filter_array.each do |str|
+          key, val_str = str.split(':')
+          next if val_str.blank?
+          val_arr = val_str.split(',')
+          filter_options[key.to_sym] = val_arr
+        end
+      end
+
+      filter_options
+    end
+
+    def filtered_resources(resources, _)
+      resources
+    end
 
     helper_method :nav_link_state
     def nav_link_state(resource)

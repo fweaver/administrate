@@ -44,6 +44,27 @@ It renders the `_table` partial to display details about the resources.
   </form>
 <% end %>
 
+<% content_for(:filter) do %>
+  <% if page.filter_options.present? %>
+    <div class="filter-options animated">
+      <% options = page.filter_options %>
+      <% options.each do |key, hs| %>
+        <div class="filter-row" data-filter-key=<%= key.to_s %> data-singular-select=<%= hs[:singular_select] %>>
+          <span class="filter-label"><%= hs[:text] %></span>
+          <% data = hs[:data] %>
+          <% data.each do |array| %>
+            <button data-filter-val=<%= array[0] %>><%= array[1] %></button>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="filter-actions">
+        <button class="filter-submit">确定</button>
+        <button class="filter-close">关闭</button>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 <header class="header">
   <h1 class="header__heading" id="page-title"><%= content_for(:title) %></h1>
   <div class="header__actions">
@@ -54,6 +75,19 @@ It renders the `_table` partial to display details about the resources.
     ) %>
   </div>
 </header>
+
+<% content_for(:javascript) do %>
+  <% if @filter_options.present? %>
+  <script>
+    <% @filter_options.each do |key, array| %>
+    <% next if array.blank? %>
+    <% array.each do |val| %>
+    $('[data-filter-val=<%= val %>]','.filter-row[data-filter-key=<%= key.to_s %>]').addClass('filter-selected');
+    <% end %>
+    <% end %>
+  </script>
+  <% end %>
+<% end %>
 
 <%= render "collection", collection_presenter: page, resources: resources %>
 
