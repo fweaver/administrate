@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version = Administrate::VERSION
   s.authors = ["frank weaver"]
   s.email = ["fanweaver@foxmail.com"]
-  s.homepage = "https://administrate-docs.herokuapp.com/"
+  s.homepage = "https://github.com/fweaver/administrate"
   s.summary = "A Rails engine for creating super-flexible admin dashboards"
   s.license = "MIT"
 

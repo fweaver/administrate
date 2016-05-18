@@ -16,6 +16,9 @@
 
 ## Changes
 
+### 0.3.1 (May 18, 2016)
+* add image field
+
 ### 0.3.0 (May 18, 2016)
 * add filter options
 
